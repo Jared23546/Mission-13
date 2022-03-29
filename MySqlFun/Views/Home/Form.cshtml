@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Bowler
+<div>
+    @*<h2>Group Information for @Model.Day at @Model.Time</h2>*@
+    
+    <form method="post">
+
+        <label asp-for="BowlerFirstName">First Name:</label>
+        <input asp-for="BowlerFirstName" /><br /><br />
+
+        <label asp-for="BowlerLastName">Last Name:</label>
+        <input asp-for="BowlerLastName" /><br /><br />
+
+        <label asp-for="BowlerMiddleInit">Middle Initial:</label>
+        <input asp-for="BowlerMiddleInit" /><br /><br />
+
+        <label asp-for="BowlerAddress">Address:</label>
+        <input asp-for="BowlerAddress" /><br /><br />
+
+        <label asp-for="BowlerCity">City:</label>
+        <input asp-for="BowlerCity" /><br /><br />
+
+        <label asp-for="BowlerState">State:</label>
+        <input asp-for="BowlerState" /><br /><br />
+
+        <label asp-for="BowlerZip">Zip:</label>
+        <input asp-for="BowlerZip" /><br /><br />
+
+        <label asp-for="BowlerPhoneNumber">Phone Number:</label>
+        <input asp-for="BowlerPhoneNumber" /><br /><br />
+
+        <label asp-for="TeamID">Team:</label>
+
+        <select asp-for="TeamID">
+
+            <option value="1">Marlins</option>
+            <option value="2">Sharks</option>
+            <option value="3">Terrapins</option>
+            <option value="4">Barracudas</option>
+            <option value="5">Dolphins</option>
+            <option value="6">Orcas</option>
+            <option value="7">Manatees</option>
+            <option value="8">Swordfish</option>
+            <option value="9">Huckleberrys</option>
+            <option value="10">MintJuleps</option>
+
+        </select>
+        <div asp-validation-summary="All"></div>
+
+        <button class="btn btn-sm btn-secondary" style="background-color: turquoise;" type="submit">Submit</button>
+
+    </form>
+</div>

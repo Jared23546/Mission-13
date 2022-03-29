@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Bowler>
+<h1 style="text-align:center;">All Teams</h1>
+<div class=" row m-1 p-1">
+    <div class="col-2">
+        <h3 style="text-align:center;">Teams</h3>
+        <a class="btn btn-block" style="text-align: center; background-color: black; color: white;" asp-controller="Home" asp-action="Index">Home</a><br />
+        @foreach (Team t in ViewBag.Teams)
+        {
+
+            <a class="btn btn-block "
+               style="text-align: center; background-color: black; color: white; "
+               asp-action="Team"
+               asp-route-teamid="@t.TeamID">
+
+                @t.TeamName
+
+            </a>
+        }
+    </div>
+    <div class="col-10">
+        <table class="table table-sm table-striped ">
+            <thead class="thead-dark">
+                <tr>
+                    <td></td>
+                    <td style="font-size: 23px;">First Name</td>
+                    <td style="font-size: 23px;">Last Name</td>
+                    <td style="font-size: 23px;">Middle Initial</td>
+                    <td style="font-size: 23px;">Address</td>
+                    <td style="font-size: 23px;">City</td>
+                    <td style="font-size: 23px;">State</td>
+                    <td style="font-size: 23px;">Zip Code</td>
+                    <td style="font-size: 23px;">Phone Number</td>
+                    <td style="font-size: 23px;">Team</td>
+                    <td></td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="btn btn-sm btn-secondary" style="background-color: turquoise;" value="Edit" asp-action="Edit" asp-route-bowlerid="@a.BowlerID">Edit</a>
+                        </td>
+
+                        <td>@a.BowlerFirstName</td>
+                        <td>@a.BowlerLastName</td>
+                        <td>@a.BowlerMiddleInit</td>
+                        <td>@a.BowlerAddress</td>
+                        <td>@a.BowlerCity</td>
+                        <td>@a.BowlerState</td>
+                        <td>@a.BowlerZip</td>
+                        <td>@a.BowlerPhoneNumber</td>
+                        <td><b>@a.BowlerTeam.TeamName</b></td>
+
+                        <td>
+                            <form method="post" asp-action="Delete" asp-route-bowlerid="@a.BowlerID">
+                                <button class="btn btn-small btn-danger" type="submit" value="Submit">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+
+
+        </table>
+    </div>
+</div>
